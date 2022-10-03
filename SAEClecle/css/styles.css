@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+html{
+    height:100%;
+}
+
+body{
+    background-color: rgb(0, 54, 110);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    height: 100%;
+    text-align: center;
+}
+
+header {
+	width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(0, 33, 72);
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    margin: 5px;
+    padding: 0px 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+}
+
+nav ul li a:hover {
+    color: #5f6588;
+    text-shadow: 5px 5px 30px #000000;
+    transition: all 0.2s ease;
+}
+
+h1 {
+    text-decoration: underline;
+}
+
+article {
+    border: 0.1em solid black;
+    padding: 20em;
+}
+
+.box_reservation {
+    background-image: linear-gradient(rgb(1, 37, 80), rgb(1, 37, 80));
+    box-shadow: 12px 12px 10px rgba(0, 0, 0, .3);
+    margin: 3em;
+    border-radius: 10px;
+    padding: 2em;
+    min-height: 100px;
+    min-width: 150px;
+    text-align: center;
+}
