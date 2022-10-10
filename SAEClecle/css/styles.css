@@ -97,7 +97,7 @@ footer{
     background-color: rgb(0, 33, 72);
     height: auto;
     width: 100%;
-    padding-top: 40px;
+    padding: 1.5em;
 }
 
 h1 {
@@ -118,4 +118,38 @@ h1 {
     min-height: 100px;
     min-width: 150px;
     text-align: center;
+}
+
+form {
+    padding: 20px;
+}
+
+#email {
+    margin-bottom: 10px;
+}
+
+body {
+    text-align: center;
+}
+
+form p {
+    margin-bottom: 10px;
+}
+
+h4 {
+    margin-bottom: 1em;
+}
+
+.box_form {
+    background-image: linear-gradient(rgb(1, 37, 80), rgb(1, 37, 80));
+    box-shadow: 12px 12px 10px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    padding: 2em;
+    min-height: 100px;
+    min-width: 150px;
+    text-align: center;
+}
+
+#select_atelier {
+    margin-bottom: 1em;
 }
