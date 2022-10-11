@@ -4,6 +4,7 @@
     <title>Site Cléclé</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="icon" type="image/png" href="images/outils.png">
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 </head>
 
@@ -23,22 +24,25 @@
     </nav>
 </header>
 
-<h4>Veuillez vous connecter afin d'accéder aux fonctionnalités du site.</h4>
 
-<div class="box_form">
+<div id="connexion">
+    <h4>Veuillez vous connecter afin d'accéder aux fonctionnalités du site.</h4>
 
-    <h2>Connexion</h2>
-    <form action="login_recoit.php" method="post">
-        <p>
-            Email : <input type="mail" name="identifiant" id="email"/>
-        </p>
-        <p>
-            Mot de passe : <input type="password" name="mdp"/>
-        </p>
-        <input type="submit" value="Valider"/>
-    </form>
+    <div class="box_form">
+
+        <h2>Connexion</h2>
+        <form action="login_recoit.php" method="post">
+            <p>
+                Email : <input type="mail" name="identifiant" id="email"/>
+            </p>
+            <p>
+                Mot de passe : <input type="password" name="mdp"/>
+            </p>
+            <input type="submit" value="Valider"/>
+        </form>
 
 
+    </div>
 </div>
 
 
