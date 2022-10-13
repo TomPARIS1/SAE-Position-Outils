@@ -130,6 +130,10 @@ nav label {
 
 /* Formulaire connexion */
 
+#footer_connexion{
+	margin-top: 290px;
+}
+
 #connexion h4 {
     text-align: center;
     margin-bottom: 10px;
