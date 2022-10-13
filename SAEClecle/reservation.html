@@ -28,16 +28,35 @@
 
         <div id="reservation">
             <h2>Réservation d'outils</h2>
+            <label for="outils">Trier par:</label>
+
+                <select name="outil" id="outil_select">
+                    <option value="1">Marteau</option>
+                    <option value="2">Tournevis</option>
+                    <option value="3">Clé à molette</option>
+                </select>
             <div class="box_reservation">
-                Outil ------ Stock ------ Dispo
+                <div class="desc_outil">
+                    <h3>Marteau</h3>
+                    <p>Stock: 5</p>
+                    <p>Disponible</p>
+                </div>
+                <a href="confirm_reservation.html">Réserver</a>
+            </div>
+            <div class="box_reservation">
+                <div class="desc_outil">
+                    <h3>Tournevis</h3>
+                    <p>Stock: 8</p>
+                    <p>Non disponible</p>
+                </div>
                 <a href="#">Réserver</a>
             </div>
             <div class="box_reservation">
-                Outil ------ Stock ------ Dispo
-                <a href="#">Réserver</a>
-            </div>
-            <div class="box_reservation">
-                Outil ------ Stock ------ Dispo
+                <div class="desc_outil">
+                    <h3>Clé à molette</h3>
+                    <p>Stock: 3</p>
+                    <p>Disponible</p>
+                </div>
                 <a href="#">Réserver</a>
             </div>
         </div>   

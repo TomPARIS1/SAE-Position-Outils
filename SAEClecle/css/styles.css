@@ -29,15 +29,12 @@ header {
 }
 
 footer{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background-color: rgb(0, 33, 72);
     height: auto;
     width: 100%;
     padding: 1.5em;
     text-align: center;
+    margin-top: 70px;
 }
 
 /* Navbar */
@@ -294,6 +291,7 @@ form p {
         transform: rotate(90deg);
         width: auto;
         margin-top: 130px;
+        margin-bottom: 100px;
     }
 }
 
