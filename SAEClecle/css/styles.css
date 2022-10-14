@@ -131,7 +131,8 @@ nav label {
 /* Formulaire connexion */
 
 #footer_connexion{
-	margin-top: 290px;
+	position: absolute;
+    bottom: 0;
 }
 
 #connexion h4 {
@@ -167,7 +168,7 @@ form p {
     .box_form {
         background-image: none;
         box-shadow: none;
-        border-radius: none;
+        border-radius: 0;
     }
     .box_form h2 {
         display: none;
@@ -175,6 +176,11 @@ form p {
 }
 
 /* Abonnement */
+
+#footer_abonnement {
+    position: absolute;
+    bottom: 0;
+}
 
 .abonnements {
     width: 100%;
@@ -263,10 +269,16 @@ form p {
         height: 400px;
         width: 330px;
         font-size: 16px;
+        display: inline-block;
     }
 }
 
 /* Localisation (index) */
+
+#footer_localisation {
+    position: absolute;
+    bottom: 0;
+}
 
 #select_atelier {
     margin-bottom: 1em;
@@ -296,6 +308,10 @@ form p {
         width: auto;
         margin-top: 130px;
         margin-bottom: 100px;
+    }
+
+    footer {
+        display: none;
     }
 }
 
