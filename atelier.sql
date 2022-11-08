@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 24 Octobre 2022 à 15:23
+-- Généré le :  Mar 08 Novembre 2022 à 10:44
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `atelier` (
   `id_atelier` int(11) NOT NULL,
+  `Nom` varchar(30) NOT NULL,
   `plan` text NOT NULL,
   `x` double NOT NULL,
   `y` double NOT NULL,
