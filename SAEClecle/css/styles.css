@@ -361,3 +361,29 @@ form p {
         width: auto;
     }
 }
+
+/* Statistiques */
+
+#statistiques {
+    text-align: center;
+    width: 40%;
+}
+
+#statistiques h2 {
+    text-decoration: underline;
+}
+
+/* SAV */
+
+#SAV h2 {
+    text-decoration: underline;
+}
+
+#SAV input {
+    margin-bottom: 10px;
+}
+
+#form_sav textarea {
+    resize: none;
+    margin-top: 10px;
+}
