@@ -293,7 +293,7 @@ form p {
     text-decoration: underline;
 }
 
-.plan img {
+.plan canvas {
     border: 2px solid black;
     width: 50em;
 }
@@ -303,7 +303,7 @@ form p {
         width: auto;
     }
 
-    .plan img {
+    .plan canvas {
         transform: rotate(90deg);
         width: auto;
         margin-top: 130px;
