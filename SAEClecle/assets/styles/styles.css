@@ -295,7 +295,6 @@ form p {
 
 .plan canvas {
     border: 2px solid black;
-    width: 50em;
 }
 
 @media (max-width: 768px) {
@@ -386,4 +385,14 @@ form p {
 #form_sav textarea {
     resize: none;
     margin-top: 10px;
+}
+
+/* Inscription */
+
+#emailInscription {
+    margin-bottom: 10px;
+}
+
+#mdpInscription {
+    margin-bottom: 10px;
 }
