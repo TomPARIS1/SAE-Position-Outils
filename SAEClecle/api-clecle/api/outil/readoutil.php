@@ -32,6 +32,7 @@
 
             array_push($employeeArr["body"], $e);
         }
+        http_response_code(200);
         echo json_encode($employeeArr);
     }
 

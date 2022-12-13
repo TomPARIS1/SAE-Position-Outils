@@ -21,11 +21,26 @@
 
     if ($item->findCompteByName()==null)
     {
-        echo "2"; // L'adresse mail n'est pas enregistrée
+        $emp_arr = array(
+            "id_client" =>  $item->id,
+            "codeErr" => "2" // L'adresse mail n'est pas enregistrée
+        );
+        http_response_code(200);
+        echo json_encode($emp_arr);
     }
     else if($item->mdp!==$hashed){
-        echo '1'; // Le mot de passe est faux
+        $emp_arr = array(
+            "id_client" =>  $item->id,
+            "codeErr" => "1" // Le mot de passe est faux
+        );
+        http_response_code(200);
+        echo json_encode($emp_arr);
     } else{
-        echo "0"; // You get some bitches
+        $emp_arr = array(
+            "id_client" =>  $item->id,
+            "codeErr" => "0" // You get some bitches
+        );
+        http_response_code(200);
+        echo json_encode($emp_arr);
     }
 ?>

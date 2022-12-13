@@ -23,11 +23,11 @@
 
     if ($item->findCompteByName()!=null)
     {
-        echo "L'adresse mail est déjà utilisé";
+        echo "1";
     }
     else if($item->createCompte()){
-        echo 'Le compte a été créé';
+        echo '0';
     } else{
-        echo "Le compte n'a pas été créé";
+        echo "2";
     }
 ?>
