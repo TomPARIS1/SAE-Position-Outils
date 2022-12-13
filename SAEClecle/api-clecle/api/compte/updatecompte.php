@@ -15,7 +15,7 @@
     $item->id = isset($_GET['id']) ? $_GET['id'] : die();
     $item->getCompteFromId();
     
-    if($item->mdp != null){
+    if($item->x != null){
         if (isset($_GET['nom']))
         {
             

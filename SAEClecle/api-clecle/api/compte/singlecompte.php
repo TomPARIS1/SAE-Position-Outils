@@ -17,7 +17,7 @@
   
     $item->getCompteFromId();
     
-    if($item->mdp != null){
+    if($item->plan != null){
         // create array
         $emp_arr = array(
             "id" => $item->id,
