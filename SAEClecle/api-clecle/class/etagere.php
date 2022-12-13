@@ -98,7 +98,7 @@
             $sqlQuery = "UPDATE
                         ". $this->db_table ."
                     SET
-                    id_atelier = :id_atelier, 
+                        id_atelier = :id_atelier, 
                         x = :x,
                         y = :y
                     WHERE 

@@ -38,6 +38,7 @@
             // bind data
             $stmt->bindParam(":nom", $this->nom);
             $stmt->bindParam(":mdp", $this->mdp);
+            echo($this->mdp);
             $stmt->bindParam(":niveau", $this->niveau);
             
             if($stmt->execute()){
