@@ -16,14 +16,18 @@
     
     $data = json_decode(file_get_contents("php://input"));
 
-    $hashed = $data->mdp;
+    $hashed = hash("sha512", $data->mdp);
     $item->nom = $data->nom;
     $item->mdp = $hashed;
     $item->niveau = $data->niveau;
-    
-    if($item->createCompte()){
-        echo 'Le compte a été créé';
+
+    if ($item->findCompteByName()!=null)
+    {
+        echo "1";
+    }
+    else if($item->createCompte()){
+        echo '0';
     } else{
-        echo "Le compte n'a pas été créé";
+        echo "2";
     }
 ?>

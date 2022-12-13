@@ -38,13 +38,41 @@
             // bind data
             $stmt->bindParam(":nom", $this->nom);
             $stmt->bindParam(":mdp", $this->mdp);
-            echo($this->mdp);
             $stmt->bindParam(":niveau", $this->niveau);
             
             if($stmt->execute()){
                return true;
             }
             return false;
+        }
+
+        public function findCompteByName()
+        {
+            $sqlQuery = "SELECT
+                        id,
+                        mdp,
+                        niveau
+                      FROM
+                        ". $this->db_table ."
+                    WHERE 
+                        nom = :nom";
+                    
+        
+            $stmt = $this->conn->prepare($sqlQuery);
+            $stmt->bindParam(":nom", $this->nom);
+            $stmt->execute();
+            
+            $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($dataRow==null)
+            {
+                return null;
+            }
+
+            $this->id = $dataRow['id'];
+            $this->mdp = $dataRow['mdp'];
+            $this->niveau = $dataRow['niveau'];
+            return $this;
         }
 
         // READ single with id

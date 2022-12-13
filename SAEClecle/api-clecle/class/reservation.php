@@ -1,5 +1,5 @@
 <?php
-    class Atelier {
+    class Reservation {
         // Connection
         private $conn;
 
@@ -67,60 +67,62 @@
             return $stmt;
         }
 
+        public function checkReservation()
+        {
+            // TODO: trouver un moyen d'être smart
+
+        }
+
         // READ single with id
         public function getReservationFromId(){
             $sqlQuery = "SELECT
-                        id_compte,
-                        id_atelier,
-                        x, 
-                        y,
-                        plan
+                        id_reservation,
+                        id_outil,
+                        date_fin, 
+                        date_debut
                       FROM
                         ". $this->db_table ."
                     WHERE 
-                        id_atelier = :id_atelier";
+                        id_reservation = :id_reservation";
                     
         
             $stmt = $this->conn->prepare($sqlQuery);
-            $stmt->bindParam(":id_atelier", $this->id_atelier);
+            $stmt->bindParam(":id_reservation", $this->id_reservation);
             $stmt->execute();
             $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
 
         
-            $this->id_compte = $dataRow['id_compte'];
-            $this->x = $dataRow['x'];
-            $this->y = $dataRow['y'];
-            $this->plan = $dataRow['plan'];
+            $this->id_outil = $dataRow['id_outil'];
+            $this->date_fin = $dataRow['date_fin'];
+            $this->date_debut = $dataRow['date_debut'];
 
             return $this;
         }
 
          // UPDATE
-        public function updateAtelier(){
+        public function updateReservation(){
             $sqlQuery = "UPDATE
                         ". $this->db_table ."
                     SET
-                        id_compte = :id_compte, 
-                        x = :x,
-                        y = :y,
-                        plan = :plan
+                        id_outil = :id_outil, 
+                        x = :date_fin,
+                        y = :date_debut
                     WHERE 
-                        id_atelier = :id_atelier";
+                        id_reservation = :id_reservation";
         
             $stmt = $this->conn->prepare($sqlQuery);
         
-            $this->id_compte=htmlspecialchars(strip_tags($this->id_compte));
-            $this->x=htmlspecialchars(strip_tags($this->x));
-            $this->y=htmlspecialchars(strip_tags($this->y));
-            $this->id_atelier=htmlspecialchars(strip_tags($this->id_atelier));
-            $this->plan=htmlspecialchars(strip_tags($this->plan));
+            $this->id_reservation=htmlspecialchars(strip_tags($this->id_reservation));
+            $this->id_outil=htmlspecialchars(strip_tags($this->id_outil));
+            $this->date_fin=htmlspecialchars(strip_tags($this->date_fin));
+            $this->date_debut=htmlspecialchars(strip_tags($this->date_debut));
         
            
-            $stmt->bindParam(":id_compte", $this->id_compte);
-            $stmt->bindParam(":x", $this->x);
-            $stmt->bindParam(":y", $this->y);
-            $stmt->bindParam(":plan", $this->plan);
-            $stmt->bindParam(":id_atelier", $this->id_atelier);
+            $stmt->bindParam(":id_reservation", $this->id_reservation);
+            $stmt->bindParam(":id_outil", $this->id_outil);
+            $stmt->bindParam(":date_fin", $this->date_fin);
+            $stmt->bindParam(":date_debut", $this->date_debut);
+            
             if($stmt->execute()){
                return true;
             }
@@ -129,15 +131,13 @@
         }
 
         // DELETE
-        public function deleteEtagereFromId(){
-            $sqlQuery = "DELETE FROM " . $this->db_table . " WHERE id_atelier = :id_atelier";
+        public function deleteReservationFromId(){
+            $sqlQuery = "DELETE FROM " . $this->db_table . " WHERE id_reservation = :id_reservation";
             $stmt = $this->conn->prepare($sqlQuery);
         
-            $this->id_atelier=htmlspecialchars(strip_tags($this->id_atelier));
+            $this->id_reservation=htmlspecialchars(strip_tags($this->id_reservation));
         
-            $stmt->bindParam(":id_atelier", $this->id_atelier);
-            
-            //TODO: Remove etagere aswell
+            $stmt->bindParam(":id_reservation", $this->id_reservation);
 
             if($stmt->execute()){
                 return true;
