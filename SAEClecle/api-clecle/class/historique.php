@@ -1,24 +1,25 @@
 <?php
-    class Reservation {
+    class Historique {
         // Connection
         private $conn;
 
         // Table
-        private $db_table = "reservation";
+        private $db_table = "historique";
 
         // Columns
-        public $id_reservation;
+        public $id_historique;
         public $id_outil;
-        public $date_fin;
-        public $date_debut;
+        public $x;
+        public $y;
+        public $date;
 
         // Db connection
         public function __construct($db){
             $this->conn = $db;
         }
         // GET ALL
-        public function getAllReservation(){
-            $sqlQuery = "SELECT id_reservation, id_outil, date_fin, date_debut FROM " . $this->db_table . "";
+        public function getAllHistorique(){
+            $sqlQuery = "SELECT id_historique, id_outil, x, y FROM " . $this->db_table . "";
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->execute();
             return $stmt;
@@ -65,12 +66,6 @@
             $stmt->execute();
         
             return $stmt;
-        }
-
-        public function checkReservation()
-        {
-            // TODO: trouver un moyen d'être smart
-
         }
 
         // READ single with id
