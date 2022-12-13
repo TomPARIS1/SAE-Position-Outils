@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Site SAE</title>
+        <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
+        <link rel="icon" type="image/png" href="assets/images/outils.png">
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <script src="https://unpkg.com/konva@8/konva.min.js"></script>
+    </head>
+
+    <body>
+        
+        <header>
+            <nav id="menu">
+                <div id="accueil">
+                    <div>
+                        <label for="check"><img src="assets/images/hamburger.png" alt="menu"></label>
+                        <input type="checkbox" id="check">
+                        <ul>
+                            <li><a href="index.html">Localisation</a></li>
+                            <li><a href="reservation.html">Réservation</a></li>
+                            <li><a href="abonnement.html">Abonnement</a></li>
+                            <li><a href="statistiques.html">Statistiques</a></li>
+                            <li><a href="SAV.html">SAV</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div id="localisation">
+            <h2>Localisation des outils</h2>
+
+            <div id="select_atelier">
+                <label for="atelier">Sélectionnez un atelier: </label>
+
+                <select name="atelier" id="atelier">
+                    <option value="1">Atelier 1</option>
+                    <option value="2">Atelier 2</option>
+                    <option value="3">Atelier 3</option>
+                    <option value="4">Atelier 4</option>
+                </select>
+            </div>
+
+            <div class="plan">
+                <img id='imgplan' style='display:none;' src="assets/images/plan2.jpg">
+                <canvas id="myCanvas"></canvas>
+            </div>
+
+        </div>
+
+        <footer id="footer_localisation">
+            <div id="footer">
+				<p>Copyright * - 2022</p>
+			</div>
+		</footer>
+    
+    </body>
+
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        c.width = 700;
+        c.height = 500
+        function fillCircle(x, y, radius, color) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+        function drawBackground(){
+            var img = document.getElementById("imgplan");
+            ctx.drawImage(img, 0, 0, c.width, c.height);
+        }
+        drawBackground();
+        fillCircle(50, 30, 10, 'red');
+        fillCircle(100, 30, 10, 'red');
+    </script>
+</html>
