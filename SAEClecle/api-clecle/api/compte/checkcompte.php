@@ -18,16 +18,14 @@
 
     $hashed = hash("sha512", $data->mdp);
     $item->nom = $data->nom;
-    $item->mdp = $hashed;
-    $item->niveau = $data->niveau;
 
-    if ($item->findCompteByName()!=null)
+    if ($item->findCompteByName()==null)
     {
-        echo "L'adresse mail est déjà utilisé";
+        echo "2"; // L'adresse mail n'est pas enregistrée
     }
-    else if($item->createCompte()){
-        echo 'Le compte a été créé';
+    else if($item->mdp!==$hashed){
+        echo '1'; // Le mot de passe est faux
     } else{
-        echo "Le compte n'a pas été créé";
+        echo "0"; // You get some bitches
     }
 ?>

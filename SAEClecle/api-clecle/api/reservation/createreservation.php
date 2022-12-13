@@ -6,28 +6,24 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     include_once '../../config/database.php';
-    include_once '../../class/compte.php';
+    include_once '../../class/reservation.php';
 
     $database = new Database();
     $db = $database->getConnection();
     $_SERVER['REQUEST_METHOD'] = 'POST';
 
-    $item = new Compte($db);
+    $item = new Reservation($db);
     
     $data = json_decode(file_get_contents("php://input"));
 
     $hashed = hash("sha512", $data->mdp);
-    $item->nom = $data->nom;
-    $item->mdp = $hashed;
-    $item->niveau = $data->niveau;
+    $item->id_outil = $data->id_outil;
+    $item->date_fin = $date_fin;
+    $item->date_debut = $data->date_debut;
 
-    if ($item->findCompteByName()!=null)
-    {
-        echo "L'adresse mail est déjà utilisé";
-    }
-    else if($item->createCompte()){
-        echo 'Le compte a été créé';
+    if($item->createReservation()){
+        echo "L'outil a été reservé de" . $item->date_debut . " a " . $item->date_fin;
     } else{
-        echo "Le compte n'a pas été créé";
+        echo "L'outil n'a pas pu être reservé";
     }
 ?>

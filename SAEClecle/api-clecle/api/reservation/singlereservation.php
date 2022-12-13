@@ -6,24 +6,24 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     include_once '../../config/database.php';
-    include_once '../../class/compte.php';
+    include_once '../../class/reservation.php';
 
     $database = new Database();
     $db = $database->getConnection();
 
-    $item = new Compte($db);
+    $item = new Reservation($db);
 
-    $item->id = isset($_GET['id']) ? $_GET['id'] : die();
+    $item->id = isset($_GET['id_reservation']) ? $_GET['id_reservation'] : die();
   
-    $item->getCompteFromId();
+    $item->getReservationFromId();
     
-    if($item->mdp != null){
+    if($item->id_outil != null){
         // create array
         $emp_arr = array(
-            "id" => $item->id,
-            "nom" => $item->nom,
-            "mdp" => $item->mdp,
-            "niveau" => $item->niveau
+            "id_reservation" => $item->id_reservation,
+            "id_outil" => $item->id_outil,
+            "date_fin" => $item->date_fin,
+            "date_debut" => $item->date_debut
         );
       
         http_response_code(200);

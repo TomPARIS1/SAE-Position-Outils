@@ -4,26 +4,25 @@
     header("Access-Control-Allow-Methods: POST");
     header("Access-Control-Max-Age: 3600");
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-
+    
     include_once '../../config/database.php';
-    include_once '../../class/compte.php';
-
+    include_once '../../class/reservation.php';
+    
     $database = new Database();
     $db = $database->getConnection();
-
-    $item = new Compte($db);
-
-    $item->id = isset($_GET['id']) ? $_GET['id'] : die();
-  
-    $item->getCompteFromId();
     
-    if($item->mdp != null){
-        // create array
+    $item = new Reservation($db);
+    $item->id = isset($_GET['id_reservation']) ? $_GET['id_reservation'] : die();
+    $item->getReservationFromId();
+    
+    if($item->type != null){
+        $result = $item->deleteReservationFromId(); 
+
         $emp_arr = array(
-            "id" => $item->id,
-            "nom" => $item->nom,
-            "mdp" => $item->mdp,
-            "niveau" => $item->niveau
+            "id_reservation" => $item->id_reservation,
+            "id_outil" => $item->id_outil,
+            "date_fin" => $item->date_fin,
+            "date_debut" => $item->date_debut
         );
       
         http_response_code(200);
@@ -32,6 +31,6 @@
       
     else{
         http_response_code(404);
-        echo json_encode("Aucun outil trouvé");
+        echo json_encode("Recipe not found.");
     }
 ?>
