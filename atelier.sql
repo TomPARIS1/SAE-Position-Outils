@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 15 Novembre 2022 à 10:33
+-- Généré le :  Mar 13 Décembre 2022 à 08:01
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -53,7 +53,7 @@ INSERT INTO `atelier` (`id_atelier`, `plan`, `x`, `y`, `id_compte`) VALUES
 CREATE TABLE `compte` (
   `id` int(11) NOT NULL,
   `nom` varchar(20) NOT NULL,
-  `mdp` varchar(20) NOT NULL,
+  `mdp` longtext NOT NULL,
   `niveau` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
