@@ -4,7 +4,7 @@
     <title>Site SAE</title>
     <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
     <link rel="icon" type="image/png" href="assets/images/outils.png">
-    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <script type="text/javascript" src="assets/scripts/inscription.js" defer></script>
     <script type="text/javascript" src="assets/scripts/functionsApi.js" defer></script>
@@ -35,13 +35,13 @@
         <h2>Inscription</h2>
         <form action="inscription.html" method="post" id="formInscription">
             <label for="emailInscription">Email: </label>
-            <input type="email" name="identifiant" id="emailInscription"/>
+            <input type="email" name="identifiant" id="emailInscription" required/>
             <br/>
             <label for="mdpInscription">Mot de passe: </label>
-            <input type="password" id="mdpInscription"/>
+            <input type="password" id="mdpInscription" maxLength="30" required/>
             <br/>
             <label for="confirmMdp">Confirmer mot de passe: </label>
-            <input type="password" id="confirmMdp"/>
+            <input type="password" id="confirmMdp" maxLength="30" required/>
             <br/>
             <br/>
             <input type="submit" value="Valider"/>
