@@ -12,19 +12,39 @@
     $db = $database->getConnection();
 
     $item = new Historique($db);
-
     $item->id_historique = isset($_GET['id_historique']) ? $_GET['id_historique'] : die();
-
     $item->getHistoriqueFromId();
 
-    if($item->id_outil != null){
-        // create array
+    if($item->x != null){
+
+        if (isset($_GET['id_outil']))
+        {
+            $item->id_outil = $_GET['id_outil'];
+        }
+
+        if (isset($_GET['x']))
+        {
+            $item->x = $_GET['x'];
+        }
+
+        if (isset($_GET['y']))
+        {
+            $item->y = $_GET['y'];
+        }
+
+        if (isset($_GET['date']))
+        {
+            $item->date = $_GET['date'];
+        }
+
+        $result = $item->updateHistorique();
+
         $emp_arr = array(
-            "id_historique" => $item->id_historique,
-            "id_outil" => $item->id_outil,
+            "id_historique" =>  $item->id_historique,
             "x" => $item->x,
             "y" => $item->y,
-            "date" => $item->date
+            "date" => $item->date,
+            "result" => $result
         );
 
         http_response_code(200);
@@ -33,6 +53,6 @@
 
     else{
         http_response_code(404);
-        echo json_encode("Aucun outil trouvé");
+        echo json_encode("History not found.");
     }
 ?>

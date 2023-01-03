@@ -12,13 +12,12 @@
     $db = $database->getConnection();
 
     $item = new Historique($db);
-
     $item->id_historique = isset($_GET['id_historique']) ? $_GET['id_historique'] : die();
-
     $item->getHistoriqueFromId();
 
     if($item->id_outil != null){
-        // create array
+        $result = $item->deleteHistoriqueFromId();
+
         $emp_arr = array(
             "id_historique" => $item->id_historique,
             "id_outil" => $item->id_outil,
@@ -33,6 +32,6 @@
 
     else{
         http_response_code(404);
-        echo json_encode("Aucun outil trouvé");
+        echo json_encode("History not found.");
     }
 ?>

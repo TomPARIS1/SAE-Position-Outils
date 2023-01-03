@@ -100,7 +100,7 @@
         }
 
          // UPDATE
-        public function updateHstorique(){
+        public function updateHistorique(){
             $sqlQuery = "UPDATE
                         ". $this->db_table ."
                     SET

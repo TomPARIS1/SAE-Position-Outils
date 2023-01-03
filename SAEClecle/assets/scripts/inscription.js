@@ -10,9 +10,18 @@ formEl.addEventListener('submit', (event) => {
 
     const mdp = values['mdpInscription'].value;
 
+    mdp.minLength = 8;
+    mdp.maxLength = 30;
+
     const confirmMdp = values['confirmMdp'].value;
 
     const element = document.getElementById('error');
 
-    (mdp === confirmMdp) ? addUser(email, mdp) : element.innerHTML = "<h4>Erreur : les mots de passe ne sont pas similaires.</h4>";
+    if ((mdp === confirmMdp) && (typeof mdp !== 'undefined') && (typeof email !== 'undefined')) {
+        addUser(email, mdp);
+        window.location = "connexion.html";
+    }
+    else {
+        element.innerHTML = "<h4>Erreur : les mots de passe ne sont pas similaires.</h4>";
+    }
 });

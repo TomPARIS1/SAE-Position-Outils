@@ -30,7 +30,6 @@
     }
     else if($item->mdp!==$hashed){
         $emp_arr = array(
-            "id_client" =>  "SUUUUUUUUUUUUUUUUUUUUUUUUUU",
             "codeErr" => "1" // Le mot de passe est faux
         );
         http_response_code(200);
