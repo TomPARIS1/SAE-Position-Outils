@@ -57,6 +57,7 @@ function connexion (email, mdp) {
         console.log(res);
         if (res['codeErr'] === '0') {
             window.location = "index.html";
+            const idCompte = res['id_client'];
         }
         else if (res['codeErr'] === '1') {
             element.innerHTML = "<h4>Erreur : le mot de passe est incorrect.</h4>";

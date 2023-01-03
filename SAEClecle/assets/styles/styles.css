@@ -396,3 +396,7 @@ form p {
 #mdpInscription {
     margin-bottom: 10px;
 }
+
+.obligatoire {
+    color: red;
+}
