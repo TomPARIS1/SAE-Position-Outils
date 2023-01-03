@@ -105,8 +105,8 @@
                         ". $this->db_table ."
                     SET
                         id_outil = :id_outil, 
-                        x = :date_fin,
-                        y = :date_debut
+                        date_fin = :date_fin,
+                        date_debut = :date_debut
                     WHERE 
                         id_reservation = :id_reservation";
         

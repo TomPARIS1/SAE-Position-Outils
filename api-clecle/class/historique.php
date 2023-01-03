@@ -26,20 +26,22 @@
         }
 
         // CREATE
-        public function createReservation(){
+        public function createHistorique(){
             $sqlQuery = "INSERT INTO
                         ". $this->db_table ."
                     SET
                         id_outil = :id_outil,
-                        date_fin = :date_fin,
-                        date_debut = :date_debut;";
+                        x = :x,
+                        y = :y,
+                        date = :date;";
         
             $stmt = $this->conn->prepare($sqlQuery);
 
             // bind data
             $stmt->bindParam(":id_outil", $this->id_outil);
-            $stmt->bindParam(":date_fin", $this->date_fin);
-            $stmt->bindParam(":date_debut", $this->date_debut);
+            $stmt->bindParam(":x", $this->x);
+            $stmt->bindParam(":y", $this->y);
+            $stmt->bindParam(":date", $this->date);
             
             if($stmt->execute()){
                return true;
@@ -48,11 +50,12 @@
         }
 
         // READ with etagere
-        public function getReservationFromOutil($id_outil){
+        public function getHistoriqueFromOutil($id_outil){
             $sqlQuery = "SELECT
-                        id_reservation,
-                        date_fin,
-                        date_debut
+                        id_historique,
+                        x,
+                        y,
+                        date
                       FROM
                         ". $this->db_table ."
                     WHERE 
@@ -69,54 +72,59 @@
         }
 
         // READ single with id
-        public function getReservationFromId(){
+        public function getHistoriqueFromId(){
             $sqlQuery = "SELECT
-                        id_reservation,
+                        id_historique,
                         id_outil,
-                        date_fin, 
-                        date_debut
+                        x, 
+                        y,
+                        date
                       FROM
                         ". $this->db_table ."
                     WHERE 
-                        id_reservation = :id_reservation";
+                    id_historique = :id_historique";
                     
         
             $stmt = $this->conn->prepare($sqlQuery);
-            $stmt->bindParam(":id_reservation", $this->id_reservation);
+            $stmt->bindParam(":id_historique", $this->id_historique);
             $stmt->execute();
             $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
 
         
             $this->id_outil = $dataRow['id_outil'];
-            $this->date_fin = $dataRow['date_fin'];
-            $this->date_debut = $dataRow['date_debut'];
+            $this->x = $dataRow['x'];
+            $this->y = $dataRow['y'];
+            $this->date = $dataRow['date'];
 
             return $this;
         }
 
          // UPDATE
-        public function updateReservation(){
+        public function updateHstorique(){
             $sqlQuery = "UPDATE
                         ". $this->db_table ."
                     SET
                         id_outil = :id_outil, 
-                        x = :date_fin,
-                        y = :date_debut
+                        x = :x,
+                        y = :y,
+                        date = :date
                     WHERE 
-                        id_reservation = :id_reservation";
+                        id_historique = :id_historique";
         
             $stmt = $this->conn->prepare($sqlQuery);
         
-            $this->id_reservation=htmlspecialchars(strip_tags($this->id_reservation));
+            $this->id_historique=htmlspecialchars(strip_tags($this->id_historique));
             $this->id_outil=htmlspecialchars(strip_tags($this->id_outil));
-            $this->date_fin=htmlspecialchars(strip_tags($this->date_fin));
-            $this->date_debut=htmlspecialchars(strip_tags($this->date_debut));
+            $this->x=htmlspecialchars(strip_tags($this->x));
+            $this->y=htmlspecialchars(strip_tags($this->y));
+            $this->date=htmlspecialchars(strip_tags($this->date));
         
            
-            $stmt->bindParam(":id_reservation", $this->id_reservation);
+            $stmt->bindParam(":id_historique", $this->id_historique);
             $stmt->bindParam(":id_outil", $this->id_outil);
-            $stmt->bindParam(":date_fin", $this->date_fin);
-            $stmt->bindParam(":date_debut", $this->date_debut);
+            $stmt->bindParam(":x", $this->x);
+            $stmt->bindParam(":y", $this->y);
+            $stmt->bindParam(":date", $this->date);
             
             if($stmt->execute()){
                return true;
@@ -126,13 +134,13 @@
         }
 
         // DELETE
-        public function deleteReservationFromId(){
-            $sqlQuery = "DELETE FROM " . $this->db_table . " WHERE id_reservation = :id_reservation";
+        public function deleteHistoriqueFromId(){
+            $sqlQuery = "DELETE FROM " . $this->db_table . " WHERE id_historique = :id_historique";
             $stmt = $this->conn->prepare($sqlQuery);
         
-            $this->id_reservation=htmlspecialchars(strip_tags($this->id_reservation));
+            $this->id_historique=htmlspecialchars(strip_tags($this->id_historique));
         
-            $stmt->bindParam(":id_reservation", $this->id_reservation);
+            $stmt->bindParam(":id_historique", $this->id_historique);
 
             if($stmt->execute()){
                 return true;

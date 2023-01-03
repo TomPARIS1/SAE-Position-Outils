@@ -6,7 +6,7 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     include_once '../../config/database.php';
-    include_once '../../class/outil.php';
+    include_once '../../class/historique.php';
 
     $database = new Database();
     $db = $database->getConnection();
@@ -20,12 +20,11 @@
     if($item->type != null){
         // create array
         $emp_arr = array(
-            "id" => $item->id,
-            "id_etagere" => $item->id_etagere,
-            "type" => $item->type,
-            "nbr_utilisations" => $item->nbr_utilisations,
+            "id_historique" => $item->id_historique,
+            "id_outil" => $item->id_outil,
             "x" => $item->x,
-            "y" => $item->y
+            "y" => $item->y,
+            "date" => $item->date
         );
       
         http_response_code(200);
