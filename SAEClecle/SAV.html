@@ -32,10 +32,10 @@
 <div id="SAV">
     <div class="box_form">
         <h2>Service Après Vente</h2>
-        <form action="submit_sav.php" method="post" id="form_sav">
+        <form action="submit_sav.html" method="post" id="form_sav">
             <div>
-                <label for="identifiant">Email<span class="obligatoire">*</span>: </label>
-                <input type="email" name="identifiant" id="identifiant" placeholder="you@exemple.com" required/>
+                <label for="email">Email: </label>
+                <input type="email" name="identifiant" placeholder="you@exemple.com"/>
             </div>
             <div>
                 <label for="probleme">Problème rencontré: </label>
@@ -51,7 +51,7 @@
                 </select>
             </div>
             <div>
-                <label for="textarea">Description: </label>
+                <label for="desc">Description: </label>
                 <textarea name="desc" id="textarea" rows="3" cols="50"></textarea>
             </div>
             <button type="submit">Envoyer</button>

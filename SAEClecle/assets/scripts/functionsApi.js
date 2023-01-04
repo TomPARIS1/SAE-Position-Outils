@@ -1,5 +1,5 @@
 const apiUrl = 'localhost/my-app/api-clecle/api/';
-console.log("hello")
+
 
 function getAtelierFromAccount (compte_id) {
     let atelier = fetch(apiUrl + 'readatelier.php/' + '?id_compte=' + compte_id);
@@ -56,16 +56,19 @@ function connexion (email, mdp) {
     .then(res => {
         console.log(res);
         if (res['codeErr'] === '0') {
-            window.location = "index.html";
-            const idCompte = res['id_client'];
+            id_client = res['id_client'];
+            return true;
         }
         else if (res['codeErr'] === '1') {
             element.innerHTML = "<h4>Erreur : le mot de passe est incorrect.</h4>";
+            return false;
         }
         else {
-            element.innerHTML = "<h4>Erreur : l'adresse mail est incorrecte.</h4>"; 
+            element.innerHTML = "<h4>Erreur : l'adresse mail est incorrecte.</h4>";
+            return false;
         }
     });
 
 }
+
 

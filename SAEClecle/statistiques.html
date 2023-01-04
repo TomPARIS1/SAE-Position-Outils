@@ -45,30 +45,14 @@
         <label for="atelier">Sélectionnez un atelier: </label>
 
         <select name="atelier" id="atelier">
-            <option value="1">Atelier 1</option>
-            <option value="2">Atelier 2</option>
-            <option value="3">Atelier 3</option>
-            <option value="4">Atelier 4</option>
-            <option value="4">Tout</option>
+            <option value="all">Tout</option>
         </select>
     </div>
 
-    <div class="box_reservation">
+    <div class="box_reservation" style="display:none;">
         <div class="desc_outil">
-            <h3>Marteau</h3>
-            <p>Nombre d'utilisation: 322</p>
-        </div>
-    </div>
-    <div class="box_reservation">
-        <div class="desc_outil">
-            <h3>Tournevis</h3>
-            <p>Nombre d'utilisation: 27</p>
-        </div>
-    </div>
-    <div class="box_reservation">
-        <div class="desc_outil">
-            <h3>Clé à molette</h3>
-            <p>Nombre d'utilisation: 5</p>
+            <h3 class="name_outil">Marteau</h3>
+            <p class="utilistion_outil">Nombre d'utilisation: 322</p>
         </div>
     </div>
 
@@ -79,6 +63,6 @@
         <p>Copyright * - 2022</p>
     </div>
 </footer>
-
+<script src="assets/scripts/stats.js" type="application/javascript" defer></script>
 </body>
 </html>

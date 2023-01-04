@@ -10,5 +10,6 @@ formEl.addEventListener('submit', (event) => {
 
     const mdp = values['mdp'].value;
 
-    connexion(email, mdp);
+    if(connexion(email, mdp))
+        window.location = "index.html";
 });

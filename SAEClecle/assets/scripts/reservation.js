@@ -1,12 +1,12 @@
-function addStatsInfos(oname, outilis)
+function addReservationInfos(oname, ostock, odispo)
 {
     let comTemp = document.querySelector(".box_reservation").cloneNode(true);
     comTemp.style = '';
     comTemp.querySelector(".name_outil").innerHTML = oname;
-    comTemp.querySelector(".utilistion_outil").innerHTML = "Nombre d'utilisation: " + outilis;
-    document.querySelector("#statistiques").append(comTemp);
+    comTemp.querySelector(".stock_outil").innerHTML = "Stock: " + ostock;
+    comTemp.querySelector(".dispo_outil").innerHTML = odispo ? "Disponible" : "Indisponible";
+    document.querySelector("#reservation").append(comTemp);
 }
-
 
 var selectList = document.getElementById("atelier");
 for (var i = 1; i < 3; i++) {
@@ -16,5 +16,5 @@ for (var i = 1; i < 3; i++) {
     selectList.appendChild(option);
 }
 
-addStatsInfos("Marteaux", 322);
-addStatsInfos("Tournevis", 32);
+addReservationInfos("Marteau", 6, true)
+addReservationInfos("Tournevis", 0, false)
