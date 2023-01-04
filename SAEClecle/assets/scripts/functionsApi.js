@@ -1,5 +1,5 @@
 const apiUrl = 'localhost/my-app/api-clecle/api/';
-
+console.log("hello")
 
 function getAtelierFromAccount (compte_id) {
     let atelier = fetch(apiUrl + 'readatelier.php/' + '?id_compte=' + compte_id);
@@ -56,8 +56,8 @@ function connexion (email, mdp) {
     .then(res => {
         console.log(res);
         if (res['codeErr'] === '0') {
-            setCookie("id_username", res['id_client'], 2);
             window.location = "index.html";
+            const idCompte = res['id_client'];
         }
         else if (res['codeErr'] === '1') {
             element.innerHTML = "<h4>Erreur : le mot de passe est incorrect.</h4>";
@@ -69,35 +69,3 @@ function connexion (email, mdp) {
 
 }
 
-// Ces fonctions ont été prise sur https://www.w3schools.com/js/js_cookies.asp, puis modifier pour notre utilisation
-function getCookie(cname) {
-    let name = cname + "=";
-    let ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-}
-
-function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-
-function checkCookie() {
-    let id_username = getCookie("id_username");
-    if (id_username == "") {
-        window.location = "connexion.html";
-        return false;
-    }
-    return true;
-}
