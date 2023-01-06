@@ -20,6 +20,13 @@ if (checkCookie())
     /* /////////////////////////////////////
             Ajouter la liaison bdd
     ///////////////////////////////////// */
-    addStatsInfos("Marteaux", 322);
-    addStatsInfos("Tournevis", 32);
+
+    getAllOutil().then(data => {
+        console.log(data['body']);
+        for (let i = 0; i < 4 /*data['itemCount']*/; i++) {
+            console.log('cc')
+            addStatsInfos(data['body'][i]['type'], data['body'][i]['nbr_utilisations']);
+        }
+    });
+
 }

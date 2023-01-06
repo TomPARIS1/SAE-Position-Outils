@@ -34,6 +34,16 @@ function getOutil (id_etagere) {
         })
 }
 
+function getAllOutil () {
+    let outils = fetch(apiUrl + 'outil/readoutil.php');
+    return new Promise((resolve) => {
+        outils.then((response => response.json()))
+            .then((data) => {
+                resolve(data);
+            })
+    })
+}
+
 function addUser (email, mdp) {
     fetch('../api-clecle/api/compte/createcompte.php', {
         method: 'POST',
