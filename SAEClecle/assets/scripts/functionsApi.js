@@ -57,7 +57,7 @@ function connexion (email, mdp) {
     .then(res => {
         console.log(res);
         if (res['codeErr'] === '0') {
-            let id_client = res['id_client'];
+            setCookie("uui_key", res['id_client'], 2);
             return true;
         }
         else if (res['codeErr'] === '1') {

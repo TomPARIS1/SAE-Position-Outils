@@ -16,5 +16,8 @@ for (var i = 1; i < 3; i++) {
     selectList.appendChild(option);
 }
 
+/* /////////////////////////////////////
+        Ajouter la liaison bdd
+///////////////////////////////////// */
 addStatsInfos("Marteaux", 322);
 addStatsInfos("Tournevis", 32);
