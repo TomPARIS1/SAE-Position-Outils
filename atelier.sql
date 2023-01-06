@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 13 Décembre 2022 à 08:01
+-- Généré le :  Ven 06 Janvier 2023 à 09:47
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -52,7 +52,7 @@ INSERT INTO `atelier` (`id_atelier`, `plan`, `x`, `y`, `id_compte`) VALUES
 
 CREATE TABLE `compte` (
   `id` int(11) NOT NULL,
-  `nom` varchar(20) NOT NULL,
+  `nom` varchar(255) NOT NULL,
   `mdp` longtext NOT NULL,
   `niveau` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -63,7 +63,12 @@ CREATE TABLE `compte` (
 
 INSERT INTO `compte` (`id`, `nom`, `mdp`, `niveau`) VALUES
 (1, 'Jean Batiment', 'btp4ever', 2),
-(2, 'Antonio Carrosserie', 'vroumvroum', 1);
+(2, 'Antonio Carrosserie', 'vroumvroum', 1),
+(5, 'nom', '2118c37356b669d52c22510c0287642551fcdc1b9b27517999e040ad56d1ad678cb71496eb4da19832143ae14ef1ceabf1824349bd608176a91f22f7088a5427', 1),
+(6, 'mickael.andrieu@exemple.comaa', '1b86355f13a7f0b90c8b6053c0254399994dfbb3843e08d603e292ca13b8f672ed5e58791c10f3e36daec9699cc2fbdc88b4fe116efa7fce016938b787043818', 1),
+(13, 'mickael.andrieu@exemple.coma', '1b86355f13a7f0b90c8b6053c0254399994dfbb3843e08d603e292ca13b8f672ed5e58791c10f3e36daec9699cc2fbdc88b4fe116efa7fce016938b787043818', 1),
+(17, 'prout@prout.com', 'f627e2532c18641619339f2586b4d05face298d1be5fa9c8b4adbee8536eda944b165978f4063713cf2133a112c7ee3366e9d7e894d5c73e9559c6b4243a65f5', 1),
+(18, 'aa@a.a', '1f40fc92da241694750979ee6cf582f2d5d7d28e18335de05abc54d0560e0f5302860c652bf08d560252aa5e74210546f369fbbbce8c12cfc7957b2652fe9a75', 1);
 
 -- --------------------------------------------------------
 
@@ -148,6 +153,17 @@ CREATE TABLE `reservation` (
   `date_fin` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user_key`
+--
+
+CREATE TABLE `user_key` (
+  `id_compte` int(11) NOT NULL,
+  `UUID` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Index pour les tables exportées
 --
@@ -194,6 +210,12 @@ ALTER TABLE `reservation`
   ADD KEY `id_outil` (`id_outil`);
 
 --
+-- Index pour la table `user_key`
+--
+ALTER TABLE `user_key`
+  ADD KEY `id_compte` (`id_compte`);
+
+--
 -- AUTO_INCREMENT pour les tables exportées
 --
 
@@ -206,7 +228,7 @@ ALTER TABLE `atelier`
 -- AUTO_INCREMENT pour la table `compte`
 --
 ALTER TABLE `compte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `etagere`
 --
@@ -260,6 +282,12 @@ ALTER TABLE `outil`
 --
 ALTER TABLE `reservation`
   ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`id_outil`) REFERENCES `outil` (`id`);
+
+--
+-- Contraintes pour la table `user_key`
+--
+ALTER TABLE `user_key`
+  ADD CONSTRAINT `user_key_ibfk_1` FOREIGN KEY (`id_compte`) REFERENCES `compte` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
