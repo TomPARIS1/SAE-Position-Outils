@@ -1,8 +1,8 @@
-const apiUrl = 'localhost/my-app/api-clecle/api/';
+const apiUrl = '../api-clecle/api/';
 
 
 function getAtelierFromAccount (compte_id) {
-    let atelier = fetch(apiUrl + 'readatelier.php/' + '?id_compte=' + compte_id);
+    let atelier = fetch(apiUrl + 'atelier/readatelier.php' + '?id_compte=' + compte_id);
     atelier.then((response => response.json()))
         .then((data) => {
             return data;
@@ -10,7 +10,7 @@ function getAtelierFromAccount (compte_id) {
 }
 
 function getSingleAtelier (id_atelier) {
-    let atelier = fetch(apiUrl + 'singleatelier.php/' + '?id_atelier=' + id_atelier);
+    let atelier = fetch(apiUrl + 'atelier/singleatelier.php' + '?id_atelier=' + id_atelier);
     atelier.then((response => response.json()))
         .then((data) => {
             return data;
@@ -18,7 +18,7 @@ function getSingleAtelier (id_atelier) {
 }
 
 function getEtagere (id_atelier) {
-    let etagere = fetch(apiUrl + 'readetagerefromatelier.php' + '?id_atelier=' + id_atelier);
+    let etagere = fetch(apiUrl + 'etagere/readetagerefromatelier.php' + '?id_atelier=' + id_atelier);
     etagere.then((response => response.json()))
         .then((data) => {
             return data;
@@ -26,9 +26,10 @@ function getEtagere (id_atelier) {
 }
 
 function getOutil (id_etagere) {
-    let etagere = fetch(apiUrl + 'readetoutilfrometagere.php' + '?id_etagere=' + id_etagere);
+    let etagere = fetch(apiUrl + 'outil/readoutilfrometagere.php' + '?id_etagere=' + id_etagere);
     etagere.then((response => response.json()))
         .then((data) => {
+            console.log(data);
             return data;
         })
 }
@@ -56,7 +57,7 @@ function connexion (email, mdp) {
     .then(res => {
         console.log(res);
         if (res['codeErr'] === '0') {
-            id_client = res['id_client'];
+            let id_client = res['id_client'];
             return true;
         }
         else if (res['codeErr'] === '1') {
