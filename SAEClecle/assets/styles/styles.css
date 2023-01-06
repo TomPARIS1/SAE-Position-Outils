@@ -101,6 +101,10 @@ nav label {
     display: none;
 }
 
+#deconnexion {
+    color: red;
+}
+
 @media(max-width: 768px) {
     nav {
         display: block;
