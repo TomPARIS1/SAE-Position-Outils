@@ -7,17 +7,19 @@ function addStatsInfos(oname, outilis)
     document.querySelector("#statistiques").append(comTemp);
 }
 
+if (checkCookie())
+{
+    var selectList = document.getElementById("atelier");
+    for (var i = 1; i < 3; i++) {
+        var option = document.createElement("option");
+        option.value = i;
+        option.text = "Atelier " + i;
+        selectList.appendChild(option);
+    }
 
-var selectList = document.getElementById("atelier");
-for (var i = 1; i < 3; i++) {
-    var option = document.createElement("option");
-    option.value = i;
-    option.text = "Atelier " + i;
-    selectList.appendChild(option);
+    /* /////////////////////////////////////
+            Ajouter la liaison bdd
+    ///////////////////////////////////// */
+    addStatsInfos("Marteaux", 322);
+    addStatsInfos("Tournevis", 32);
 }
-
-/* /////////////////////////////////////
-        Ajouter la liaison bdd
-///////////////////////////////////// */
-addStatsInfos("Marteaux", 322);
-addStatsInfos("Tournevis", 32);

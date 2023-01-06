@@ -58,15 +58,13 @@ function connexion (email, mdp) {
         console.log(res);
         if (res['codeErr'] === '0') {
             setCookie("uui_key", res['id_client'], 2);
-            return true;
+            window.location = "index.html";
         }
         else if (res['codeErr'] === '1') {
             element.innerHTML = "<h4>Erreur : le mot de passe est incorrect.</h4>";
-            return false;
         }
         else {
             element.innerHTML = "<h4>Erreur : l'adresse mail est incorrecte.</h4>";
-            return false;
         }
     });
 

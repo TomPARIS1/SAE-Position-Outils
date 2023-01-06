@@ -23,9 +23,19 @@ function setCookie(cname, cvalue, exdays) {
 
 function checkCookie() {
     let id_username = getCookie("uui_key");
-    if (id_username == "") {
-        window.location = "connexion.html";
-        return false;
+    if (id_username == "" || id_username == "null") {
+      window.location = "connexion.html";
+      return false;
     }
     return true;
+}
+
+let deco = document.getElementById("deconnexion");
+if (deco != null)
+{
+  deco.addEventListener('click', (event) => {
+      event.preventDefault();
+      setCookie("uui_key", null, 1);
+      window.location = "connexion.html";
+  });
 }

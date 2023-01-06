@@ -8,17 +8,19 @@ function addReservationInfos(oname, ostock, odispo)
     document.querySelector("#reservation").append(comTemp);
 }
 
-var selectList = document.getElementById("atelier");
-for (var i = 1; i < 3; i++) {
-    var option = document.createElement("option");
-    option.value = i;
-    option.text = "Atelier " + i;
-    selectList.appendChild(option);
-}
-
-
 /* /////////////////////////////////////
         Ajouter la liaison bdd
 ///////////////////////////////////// */
-addReservationInfos("Marteau", 6, true)
-addReservationInfos("Tournevis", 0, false)
+if (checkCookie())
+{
+    var selectList = document.getElementById("atelier");
+    for (var i = 1; i < 3; i++) {
+        var option = document.createElement("option");
+        option.value = i;
+        option.text = "Atelier " + i;
+        selectList.appendChild(option);
+    }
+
+    addReservationInfos("Marteau", 6, true)
+    addReservationInfos("Tournevis", 0, false)
+}
