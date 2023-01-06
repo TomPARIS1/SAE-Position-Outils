@@ -23,9 +23,17 @@ function reloadImg(imgPath)
 
         let ctx = c.getContext("2d");
         drawBackground(ctx, c);
-
-        fillCircle(ctx, 50, 30, 10, 'red');
-        fillCircle(ctx, 200, 30, 10, 'red');
+        
+        if (document.getElementById("atelier").value=="assets/images/plan.jpg")
+        {
+            fillCircle(ctx, 50, 30, 10, 'red');
+            fillCircle(ctx, 200, 30, 10, 'red');
+        }
+        else
+        {
+            fillCircle(ctx, 75, 30, 10, 'red');
+            fillCircle(ctx, 150, 100, 10, 'red');
+        }
     });
 }
 
@@ -55,7 +63,10 @@ if (checkCookie())
     let selectList = document.getElementById("atelier");
     for (let i = 1; i < 3; i++) {
         let option = document.createElement("option");
-        option.value = "assets/images/plan" + i + ".jpg";
+        if (i==1)
+            option.value = "assets/images/plan.jpg";
+        else
+            option.value = "assets/images/plan" + i + ".jpg";
         option.text = "Atelier " + i;
         selectList.appendChild(option);
     }
