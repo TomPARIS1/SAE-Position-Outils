@@ -13,9 +13,9 @@ function addReservationInfos(oname, ostock, odispo)
 ///////////////////////////////////// */
 if (checkCookie())
 {
-    var selectList = document.getElementById("atelier");
-    for (var i = 1; i < 3; i++) {
-        var option = document.createElement("option");
+    let selectList = document.getElementById("atelier");
+    for (let i = 1; i < 3; i++) {
+        let option = document.createElement("option");
         option.value = i;
         option.text = "Atelier " + i;
         selectList.appendChild(option);

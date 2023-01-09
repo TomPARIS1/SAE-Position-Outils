@@ -29,7 +29,6 @@ function getOutil (id_etagere) {
     let etagere = fetch(apiUrl + 'outil/readoutilfrometagere.php' + '?id_etagere=' + id_etagere);
     etagere.then((response => response.json()))
         .then((data) => {
-            console.log(data);
             return data;
         })
 }
@@ -51,7 +50,7 @@ function addUser (email, mdp) {
             'Content-Type': 'application/json; charset=UTF-8'
         },
         body: JSON.stringify({nom: email, mdp: mdp, niveau: 1})
-    }).then((res) => console.log(res.statusText));
+    });
 }
 
 function connexion (email, mdp) {
@@ -65,7 +64,6 @@ function connexion (email, mdp) {
         body: JSON.stringify({nom: email, mdp: mdp})
     }).then((res) => res.json())
     .then(res => {
-        console.log(res);
         if (res['codeErr'] === '0') {
             setCookie("uui_key", res['id_client'], 2);
             window.location = "index.html";
