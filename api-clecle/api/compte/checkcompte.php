@@ -7,6 +7,7 @@
 
     include_once '../../config/database.php';
     include_once '../../class/compte.php';
+    include_once '../../class/uui_key.php';
 
     $database = new Database();
     $db = $database->getConnection();
@@ -22,7 +23,6 @@
     if ($item->findCompteByName()==null)
     {
         $emp_arr = array(
-            "id_client" =>  $item->id,
             "codeErr" => "2" // L'adresse mail n'est pas enregistrée
         );
         http_response_code(200);
@@ -35,8 +35,12 @@
         http_response_code(200);
         echo json_encode($emp_arr);
     } else{
+        $key = new UUI_key($db);
+        $key->id_compte = $item->id;
+        $key->createUUID();
+
         $emp_arr = array(
-            "id_client" =>  $item->id,
+            "uui_key" =>  $key->UUID,
             "codeErr" => "0" // You get some bitches
         );
         http_response_code(200);

@@ -54,8 +54,7 @@ function addUser (email, mdp) {
 }
 
 function connexion (email, mdp) {
-    const element = document.getElementById('errorConnexion');
-
+    
     fetch('../api-clecle/api/compte/checkcompte.php', {
         method: 'POST',
         headers: {
@@ -65,13 +64,15 @@ function connexion (email, mdp) {
     }).then((res) => res.json())
     .then(res => {
         if (res['codeErr'] === '0') {
-            setCookie("uui_key", res['id_client'], 2);
+            setCookie("uui_key", res['uui_key'], 2);
             window.location = "index.html";
         }
         else if (res['codeErr'] === '1') {
+            const element = document.getElementById('errorConnexion');
             element.innerHTML = "<h4>Erreur : le mot de passe est incorrect.</h4>";
         }
         else {
+            const element = document.getElementById('errorConnexion');
             element.innerHTML = "<h4>Erreur : l'adresse mail est incorrecte.</h4>";
         }
     });
