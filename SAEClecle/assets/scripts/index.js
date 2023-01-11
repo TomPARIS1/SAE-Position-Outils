@@ -60,23 +60,25 @@ if (checkCookie())
 ///////////////////////////////////// */
     reloadImg("assets/images/plan.jpg");
 
-    let x = getAtelierFromAccount(getCookie("uui_key"));
-    console.log(x);
+    getAtelierFromAccount(getCookie("uui_key")).then(data => {
+        if (!data['result'])
+        {
+            window.location = "connexion.html";
+        }
 
-    let selectList = document.getElementById("atelier");
-    for (let i = 1; i < 3; i++) {
-        let option = document.createElement("option");
-        if (i==1)
-            option.value = "assets/images/plan.jpg";
-        else
-            option.value = "assets/images/plan" + i + ".jpg";
-        option.text = "Atelier " + i;
-        selectList.appendChild(option);
-    }
-    /* ////////////////////////////////// */
+        let selectList = document.getElementById("atelier");
+        for (let i = 1; i <= data['itemCount']; i++) {
+            let option = document.createElement("option");
+            option.value = Object.values(data['body'][i-1]);
+            option.text = "Atelier " + i;
+            selectList.appendChild(option);
+        }
+        /* ////////////////////////////////// */
 
-    selectList.addEventListener("change", function() {
-        reloadImg(selectList.value);
+        selectList.addEventListener("change", function() {
+            let arr = selectList.value.split(',');
+            reloadImg("assets/" + arr[4]);
+        });
     });
 }
 

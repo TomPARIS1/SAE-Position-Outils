@@ -1,4 +1,6 @@
 <?php
+    include_once '../../class/compte.php';
+
     class UUI_key {
         // Connection
         private $conn;
@@ -83,7 +85,9 @@
 
         public function checkUUID()
         {
-            $this->getIdClientFromUUID();
+            $item = new Compte($this->conn);
+            $item->id = $this->getIdClientFromUUID()->id_compte;
+            $item->getCompteFromId();
 
             date_default_timezone_set('Europe/Paris');
             $today_time = strtotime(date("Y-m-d H:i:s"));
@@ -95,7 +99,7 @@
                 return null;
             }
 
-            return $this->id_compte;
+            return $item;
         }
 
         // DELETE

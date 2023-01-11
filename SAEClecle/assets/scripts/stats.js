@@ -40,7 +40,7 @@ function loadStats()
     clearUnwantedChild();
 
     getAllOutil().then(data => {
-        for (let i = 0; i < 4 /*data['itemCount']*/; i++) {
+        for (let i = 0; i < data['itemCount']; i++) {
             addStatsInfos(data['body'][i]['type'], data['body'][i]['nbr_utilisations']);
         }
     });

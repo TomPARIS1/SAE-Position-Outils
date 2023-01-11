@@ -2,11 +2,19 @@ const apiUrl = '../api-clecle/api/';
 
 
 function getAtelierFromAccount (uui_key) {
-    let atelier = fetch(apiUrl + 'atelier/readatelier.php' + '?id_compte=' + uui_key);
-    atelier.then((response => response.json()))
-        .then((data) => {
-            return data;
-        })
+    let atelier = fetch(apiUrl + 'atelier/readatelierfromcompte.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify({uui_key: uui_key})
+    });
+    return new Promise((resolve) => {
+        atelier.then((response => response.json()))
+            .then((data) => {
+                resolve(data);
+            })
+    })
 }
 
 function getSingleAtelier (id_atelier) {
