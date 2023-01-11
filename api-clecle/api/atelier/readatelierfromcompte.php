@@ -10,7 +10,9 @@
 
     $items = new Atelier($db);
 
-    $id_compte = isset($_GET['id_compte']) ? $_GET['id_compte'] : die();
+    $id_compte = isset($_GET['uui_key']) ? $_GET['uui_key'] : die();
+    var_dump($id_compte);
+
 
     $stmt = $items->getAtelierFromCompte($id_compte);
     $itemCount = $stmt->rowCount();

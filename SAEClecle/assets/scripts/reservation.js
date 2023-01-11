@@ -23,5 +23,4 @@ if (checkCookie())
 
     addReservationInfos("Marteau", 6, true)
     addReservationInfos("Tournevis", 0, false)
-    addReservationInfos("Test", 0, false)
 }

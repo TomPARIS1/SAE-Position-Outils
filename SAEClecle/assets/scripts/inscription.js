@@ -22,6 +22,6 @@ formEl.addEventListener('submit', (event) => {
         window.location = "connexion.html";
     }
     else {
-        element.innerHTML = "<br/><h4>Erreur : les mots de passe ne sont pas similaires.</h4>";
+        element.innerHTML = "<h4>Erreur : les mots de passe ne sont pas similaires.</h4>";
     }
 });

@@ -16,9 +16,8 @@
     
     $data = json_decode(file_get_contents("php://input"));
 
-
     $item->UUID = $data->UUID;
-    echo $item->checkUUID();
+    //var_dump($item->checkUUID());
 
     /*
     $item->id_outil = $data->id_outil;
