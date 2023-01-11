@@ -162,7 +162,7 @@ CREATE TABLE `reservation` (
 CREATE TABLE `user_key` (
   `id_compte` int(11) NOT NULL,
   `UUID` longtext NOT NULL,
-  `date_valide` DATETIME NOT NULL,
+  `date_valide` DATETIME NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
