@@ -24,7 +24,7 @@ function reloadImg(imgPath)
         let ctx = c.getContext("2d");
         drawBackground(ctx, c);
         
-        if (document.getElementById("atelier").value=="assets/images/plan.jpg")
+        if (document.getElementById("atelier").value === "assets/images/plan.jpg")
         {
             fillCircle(ctx, 50, 30, 10, 'red');
             fillCircle(ctx, 200, 30, 10, 'red');
@@ -63,7 +63,7 @@ if (checkCookie())
     let selectList = document.getElementById("atelier");
     for (let i = 1; i < 3; i++) {
         let option = document.createElement("option");
-        if (i==1)
+        if (i === 1)
             option.value = "assets/images/plan.jpg";
         else
             option.value = "assets/images/plan" + i + ".jpg";

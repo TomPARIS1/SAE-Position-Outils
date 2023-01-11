@@ -69,11 +69,11 @@ function connexion (email, mdp) {
         }
         else if (res['codeErr'] === '1') {
             const element = document.getElementById('errorConnexion');
-            element.innerHTML = "<h4>Erreur : le mot de passe est incorrect.</h4>";
+            element.innerHTML = "<br/><h4>Erreur : le mot de passe est incorrect.</h4>";
         }
         else {
             const element = document.getElementById('errorConnexion');
-            element.innerHTML = "<h4>Erreur : l'adresse mail est incorrecte.</h4>";
+            element.innerHTML = "<br/><h4>Erreur : l'adresse mail est incorrecte.</h4>";
         }
     });
 
