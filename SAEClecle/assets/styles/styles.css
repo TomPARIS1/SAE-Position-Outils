@@ -365,6 +365,11 @@ form p {
     }
 }
 
+#reservationform h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
 /* Statistiques */
 
 #statistiques {
@@ -373,6 +378,7 @@ form p {
 }
 
 #statistiques h2 {
+    text-align: center;
     text-decoration: underline;
 }
 

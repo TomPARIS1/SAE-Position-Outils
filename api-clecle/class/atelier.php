@@ -24,6 +24,7 @@
             $stmt->execute();
             return $stmt;
         }
+        
 
         // CREATE
         public function createAtelier(){

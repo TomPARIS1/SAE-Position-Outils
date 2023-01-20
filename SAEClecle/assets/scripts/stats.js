@@ -35,35 +35,68 @@ function clearUnwantedChild()
     }
 }
 
-function loadStats()
+function loadStats(id_atelier)
 {
     clearUnwantedChild();
 
-    getAllOutil().then(data => {
-        for (let i = 0; i < data['itemCount']; i++) {
-            addStatsInfos(data['body'][i]['type'], data['body'][i]['nbr_utilisations']);
-        }
-    });
+    if (id_atelier=="-1")
+    {
+        getOutilsFromCompte(getCookie("uui_key")).then(data => {
+            if (!data['result'])
+            {
+                window.location = "connexion.html";
+            }
+            else
+            {
+                for (let i = 0; i < data['itemCount']; i++) {
+                    addStatsInfos(data['body'][i]['type'], data['body'][i]['nbr_utilisations']);
+                }
+            }
+        });
+    }
+    else
+    {
+        getOutilsFromAtelier(getCookie("uui_key"), id_atelier).then(data => {
+            if (!data['result'])
+            {
+                window.location = "connexion.html";
+            }
+            else
+            {
+                for (let i = 0; i < data['itemCount']; i++) {
+                    addStatsInfos(data['body'][i]['type'], data['body'][i]['nbr_utilisations']);
+                }
+            }
+        });
+    }
 }
 
 if (checkCookie())
 {
-    let selectList = document.getElementById("atelier");
-    for (let i = 1; i < 3; i++) {
-        let option = document.createElement("option");
-        option.value = i;
-        option.text = "Atelier " + i;
-        selectList.appendChild(option);
-    }
+    getAtelierFromAccount(getCookie("uui_key")).then(data => {
+        if (!data['result'])
+        {
+            window.location = "connexion.html";
+        }
 
-    selectList.addEventListener("change", function() {
-        loadStats();
+        let selectList = document.getElementById("atelier");
+        for (let i = 1; i <= data['itemCount']; i++) {
+            let option = document.createElement("option");
+            option.value = Object.values(data['body'][i-1]['id_atelier']);
+            option.text = "Atelier " + i;
+            selectList.appendChild(option);
+        }
+        
+
+        selectList.addEventListener("change", function() {
+            loadStats(selectList.value);
+        });
+
+        let ordreList = document.getElementById("ordre");
+        ordreList.addEventListener("change", function() {
+            loadStats(selectList.value);
+        });
+
+        loadStats("-1");
     });
-
-    let ordreList = document.getElementById("ordre");
-    ordreList.addEventListener("change", function() {
-        loadStats();
-    });
-
-    loadStats();
 }

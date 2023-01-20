@@ -19,7 +19,7 @@
         }
         // GET ALL
         public function getAllOutil(){
-            $sqlQuery = "SELECT id, id_etagere, type, nbr_utilisations, x, y FROM " . $this->db_table . "";
+            $sqlQuery = "SELECT id, id_etagere, type, nbr_utilisations, x, y FROM " . $this->db_table . " ORDER BY nbr_utilisations";
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->execute();
             return $stmt;
@@ -69,6 +69,112 @@
             $stmt = $this->conn->prepare($sqlQuery);
         
             $stmt->bindParam(":id_etagere", $etagere_id);
+        
+            $stmt->execute();
+        
+            return $stmt;
+        }
+
+        // READ with atelier
+        public function getOutilsFromAtelierUseOrder($id_atelier){
+            $sqlQuery = "SELECT
+                        outil.id,
+                        id_etagere,
+                        type, 
+                        nbr_utilisations, 
+                        outil.x, 
+                        outil.y
+                        FROM
+                        ". $this->db_table ."
+                        JOIN etagere ON etagere.id = outil.id_etagere
+                        JOIN atelier ON atelier.id_atelier = etagere.id_atelier
+                        WHERE 
+                            atelier.id_atelier = :id_atelier
+                        ORDER BY nbr_utilisations";
+                    
+        
+            $stmt = $this->conn->prepare($sqlQuery);
+        
+            $stmt->bindParam(":id_atelier", $id_atelier);
+        
+            $stmt->execute();
+        
+            return $stmt;
+        }
+
+        public function getOutilsFromAtelierReservationOrder($id_atelier){
+            $sqlQuery = "SELECT
+                        outil.id,
+                        id_etagere,
+                        type, 
+                        nbr_utilisations, 
+                        outil.x, 
+                        outil.y
+                        FROM
+                        ". $this->db_table ."
+                        JOIN etagere ON etagere.id = outil.id_etagere
+                        JOIN atelier ON atelier.id_atelier = etagere.id_atelier
+                        WHERE 
+                            atelier.id_atelier = :id_atelier
+                        ORDER BY type";
+                    
+        
+            $stmt = $this->conn->prepare($sqlQuery);
+        
+            $stmt->bindParam(":id_atelier", $id_atelier);
+        
+            $stmt->execute();
+        
+            return $stmt;
+        }
+
+        public function getOutilsFromAtelierForReservation($id_atelier){
+            $sqlQuery = "SELECT
+                        outil.id,
+                        id_etagere,
+                        type, 
+                        nbr_utilisations, 
+                        outil.x, 
+                        outil.y
+                        FROM
+                        ". $this->db_table ."
+                        JOIN etagere ON etagere.id = outil.id_etagere
+                        JOIN atelier ON atelier.id_atelier = etagere.id_atelier
+                        WHERE 
+                            atelier.id_atelier = :id_atelier
+                        ORDER BY type";
+                    
+        
+            $stmt = $this->conn->prepare($sqlQuery);
+        
+            $stmt->bindParam(":id_atelier", $id_atelier);
+        
+            $stmt->execute();
+        
+            return $stmt;
+        }
+
+        // READ with atelier
+        public function getOutilsFromCompte($id_compte){
+            $sqlQuery = "SELECT
+                        outil.id,
+                        id_etagere,
+                        type, 
+                        nbr_utilisations, 
+                        outil.x, 
+                        outil.y
+                        FROM
+                        ". $this->db_table ."
+                        JOIN etagere ON etagere.id = outil.id_etagere
+                        JOIN atelier ON atelier.id_atelier = etagere.id_atelier
+                        WHERE 
+                            atelier.id_compte = :id_compte
+                        ORDER BY nbr_utilisations";
+                    
+        
+            $stmt = $this->conn->prepare($sqlQuery);
+        
+            $stmt->bindParam(":id_compte", $id_compte);
         
             $stmt->execute();
         

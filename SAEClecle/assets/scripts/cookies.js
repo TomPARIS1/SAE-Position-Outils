@@ -35,7 +35,7 @@ if (deco != null)
 {
   deco.addEventListener('click', (event) => {
       event.preventDefault();
-      setCookie("uui_key", null, 1);
+      setCookie("uui_key", "", 1);
       window.location = "connexion.html";
   });
 }

@@ -6,32 +6,31 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     include_once '../../config/database.php';
-    include_once '../../class/reservation.php';
+    include_once '../../class/sav.php';
     include_once '../../class/uui_key.php';
 
     $database = new Database();
     $db = $database->getConnection();
     $_SERVER['REQUEST_METHOD'] = 'POST';
 
-    $items = new Reservation($db);
+    $items = new SAV($db);
     $keyitem = new UUI_key($db);
 
     $data = json_decode(file_get_contents("php://input"));
 
 
 
-    $items->id_outil = $data->id_outil;
-    $items->client_name = $data->nom_client;
-
-    date_default_timezone_set('Europe/Paris');
-    $items->date_debut = date('Y-m-d h:i:s', strtotime($data->date_deb));
-    $items->date_fin = date('Y-m-d h:i:s', strtotime($data->date_fin));
+    
+    $items->nom = $data->nom;
+    $items->issue = $data->issue;
+    $items->commentaire = $data->commentaire;
 
     $keyitem->UUID = $data->uui_key;
     $id_from_uuid = $keyitem->IsValidUUID();
+    $items->id_compte = $id_from_uuid;
 
     
-    if ($id_from_uuid==null || $items->getOwner()!=$id_from_uuid)
+    if ($id_from_uuid==null)
     {
         $emp_arr = array(
             "result" => false
@@ -42,7 +41,7 @@
     }
     else
     {
-        $created = $items->createReservation();
+        $created = $items->createSavTicket();
 
         $emp_arr = array(
             "result" => true,

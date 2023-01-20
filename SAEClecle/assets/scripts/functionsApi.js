@@ -17,34 +17,80 @@ function getAtelierFromAccount (uui_key) {
     })
 }
 
-function getSingleAtelier (id_atelier) {
-    let atelier = fetch(apiUrl + 'atelier/singleatelier.php' + '?id_atelier=' + id_atelier);
-    atelier.then((response => response.json()))
-        .then((data) => {
-            return data;
-        })
-}
-
-function getEtagere (id_atelier) {
-    let etagere = fetch(apiUrl + 'etagere/readetagerefromatelier.php' + '?id_atelier=' + id_atelier);
-    etagere.then((response => response.json()))
-        .then((data) => {
-            return data;
-        })
-}
-
-function getOutil (id_etagere) {
-    let etagere = fetch(apiUrl + 'outil/readoutilfrometagere.php' + '?id_etagere=' + id_etagere);
-    etagere.then((response => response.json()))
-        .then((data) => {
-            return data;
-        })
-}
-
-function getAllOutil () {
-    let outils = fetch(apiUrl + 'outil/readoutil.php');
+function getOutilsFromAtelier (uui_key, id_atelier, sortmode = 0) {
+    let atelier = fetch(apiUrl + 'outil/getoutilsfromateliers.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify({uui_key: uui_key, atelier_id: id_atelier, sortmode: sortmode})
+    });
     return new Promise((resolve) => {
-        outils.then((response => response.json()))
+        atelier.then((response => response.json()))
+            .then((data) => {
+                resolve(data);
+            })
+    })
+}
+
+function getOutilsFromCompte(uui_key) {
+    let atelier = fetch(apiUrl + 'outil/getoutilsfromcompte.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify({uui_key: uui_key})
+    });
+    return new Promise((resolve) => {
+        atelier.then((response => response.json()))
+            .then((data) => {
+                resolve(data);
+            })
+    })
+}
+
+function getReservationFromOutil(uui_key, id_outil) {
+    let atelier = fetch(apiUrl + 'reservation/readreservationfromoutil.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify({uui_key: uui_key, id_outil: id_outil})
+    });
+    return new Promise((resolve) => {
+        atelier.then((response => response.json()))
+            .then((data) => {
+                resolve(data);
+            })
+    })
+}
+
+function createReservationFor(uui_key, id_outil, nom_client, date_deb, date_fin) {
+    let atelier = fetch(apiUrl + 'reservation/createreservation.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify({uui_key: uui_key, id_outil: id_outil, nom_client: nom_client, date_deb: date_deb, date_fin: date_fin})
+    });
+    return new Promise((resolve) => {
+        atelier.then((response => response.json()))
+            .then((data) => {
+                resolve(data);
+            })
+    })
+}
+
+function createSavTicket(uui_key, issue, nom, commentaire) {
+    let atelier = fetch(apiUrl + 'sav/createticket.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify({uui_key: uui_key, issue: issue, nom: nom, commentaire: commentaire})
+    });
+    return new Promise((resolve) => {
+        atelier.then((response => response.json()))
             .then((data) => {
                 resolve(data);
             })

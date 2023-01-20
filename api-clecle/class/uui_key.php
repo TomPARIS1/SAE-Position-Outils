@@ -87,7 +87,9 @@
         {
             $item = new Compte($this->conn);
             $item->id = $this->getIdClientFromUUID()->id_compte;
+            
             $item->getCompteFromId();
+
 
             date_default_timezone_set('Europe/Paris');
             $today_time = strtotime(date("Y-m-d H:i:s"));
@@ -96,10 +98,16 @@
             if ($expiration_date < $today_time) 
             {
                 $this->deleteUUIDFromUUID();
-                return null;
+                $item->id = null;
+                return $item;
             }
 
             return $item;
+        }
+
+        public function IsValidUUID()
+        {
+            return $this->checkUUID()->id;
         }
 
         // DELETE

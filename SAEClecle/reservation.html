@@ -40,15 +40,14 @@
                 </select>
             </div>
 
-            <div class="box_reservation" style="display:none;">
-                <div class="desc_outil">
-                    <h3 class="name_outil"></h3>
-                    <p class="stock_outil"></p>
-                    <p class="dispo_outil"></p>
+            <div id="listoutil"></div>
+                <div class="box_reservation" style="display:none;">
+                    <div class="desc_outil">
+                        <h3 class="name_outil"></h3>
+                    </div>
+                    <a href="confirm_reservation.html" class="reservation_selector" id="-1">Réserver</a>
                 </div>
-                <a href="confirm_reservation.html">Réserver</a>
             </div>
-
             
         </div>
 
@@ -58,6 +57,7 @@
 			</div>
         </footer>
         <script src="assets/scripts/cookies.js" type="application/javascript"></script>
+        <script src="assets/scripts/functionsApi.js" type="application/javascript" defer></script>
         <script src="assets/scripts/reservation.js" type="application/javascript" defer></script>
     </body>
 </html>

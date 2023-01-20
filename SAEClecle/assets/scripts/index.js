@@ -1,4 +1,4 @@
-function reloadImg(imgPath)
+function reloadImg(imgPath, id_atelier, xmax, ymax)
 {
     let oldImg = document.getElementById("imgplan");
     if (oldImg != null)
@@ -19,21 +19,25 @@ function reloadImg(imgPath)
     imgg.addEventListener("load", function () {
         let c = document.getElementById("myCanvas");
         c.width = 700;
-        c.height = 500
+        c.height = 500;
+        x_mult = 700/xmax;
+        y_mult = 500/ymax;
 
         let ctx = c.getContext("2d");
         drawBackground(ctx, c);
-        
-        if (document.getElementById("atelier").value=="assets/images/plan.jpg")
-        {
-            fillCircle(ctx, 50, 30, 10, 'red');
-            fillCircle(ctx, 200, 30, 10, 'red');
-        }
-        else
-        {
-            fillCircle(ctx, 75, 30, 10, 'red');
-            fillCircle(ctx, 150, 100, 10, 'red');
-        }
+
+        getOutilsFromAtelier(getCookie("uui_key"), id_atelier).then(data => {
+            if (!data['result'])
+            {
+                window.location = "connexion.html";
+            }
+            else
+            {
+                for (let i = 1; i <= data['itemCount']; i++) {
+                    fillCircle(ctx, (data['body'][i-1]['x'])*x_mult, (data['body'][i-1]['y'])*y_mult, 10, 'red');
+                }
+            }
+        });
     });
 }
 
@@ -55,11 +59,6 @@ function drawBackground(ctx, c){
 
 if (checkCookie())
 {
-/* /////////////////////////////////////
-        Ajouter la liaison bdd
-///////////////////////////////////// */
-    reloadImg("assets/images/plan.jpg");
-
     getAtelierFromAccount(getCookie("uui_key")).then(data => {
         if (!data['result'])
         {
@@ -73,11 +72,14 @@ if (checkCookie())
             option.text = "Atelier " + i;
             selectList.appendChild(option);
         }
-        /* ////////////////////////////////// */
+        
+        reloadImg("assets/" + data['body'][0]['plan'], data['body'][0]['id_atelier'], data['body'][0]['x'], data['body'][0]['y']);
+
+        
 
         selectList.addEventListener("change", function() {
             let arr = selectList.value.split(',');
-            reloadImg("assets/" + arr[4]);
+            reloadImg("assets/" + arr[4], arr[1], arr[2], arr[3]);
         });
     });
 }
