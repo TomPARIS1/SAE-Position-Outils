@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Site SAE</title>
+        <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
+        <link rel="icon" type="image/png" href="assets/images/outils.png">
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        
+        <header>
+            <nav id="menu">
+			<div id="accueil">
+				<div>
+                    <label for="check"><img src="assets/images/hamburger.png" alt="menu"></label>
+					<input type="checkbox" id="check">
+					<ul>
+						<li><a href="index.html">Localisation</a></li>
+						<li><a href="reservation.html">Réservation</a></li>
+						<li><a href="abonnement.html">Abonnement</a></li>
+                        <li><a href="statistiques.html">Statistiques</a></li>
+                        <li><a href="SAV.html">SAV</a></li>
+                        <li><a id="deconnexion" href="connexion.html">Déconnexion</a></li>
+					</ul>
+				</div>
+			</div>
+		    </nav>
+        </header>
+
+        <div id="reservation">
+            <h2>Réservation d'outils</h2>
+            <br>
+
+            <div id="select_atelier">
+                <label for="atelier">Sélectionnez un atelier: </label>
+
+                <select name="atelier" id="atelier">
+                </select>
+            </div>
+
+            <div id="listoutil"></div>
+                <div class="box_reservation" style="display:none;">
+                    <div class="desc_outil">
+                        <h3 class="name_outil"></h3>
+                    </div>
+                    <a href="confirm_reservation.html" class="reservation_selector" id="-1">Réserver</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <footer id="pied_de_page">
+            <div id="footer">
+				<p>Copyright * - 2022</p>
+			</div>
+        </footer>
+        <script src="assets/scripts/cookies.js" type="application/javascript"></script>
+        <script src="assets/scripts/functionsApi.js" type="application/javascript" defer></script>
+        <script src="assets/scripts/reservation.js" type="application/javascript" defer></script>
+    </body>
+</html>

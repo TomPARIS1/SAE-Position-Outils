@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Site SAE</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
+    <link rel="icon" type="image/png" href="assets/images/outils.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="assets/scripts/inscription.js" defer></script>
+    <script type="text/javascript" src="assets/scripts/functionsApi.js" defer></script>
+</head>
+
+<body>
+
+<header>
+    <nav id="menu">
+        <div id="accueil">
+            <div>
+                <label for="check"><img src="assets/images/hamburger.png" alt="menu"></label>
+                <input type="checkbox" id="check">
+                <ul>
+                    <li><a href="connexion.html">Connexion</a></li>
+                    <li><a href="inscription.html">Inscription</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<div id="connexion">
+
+    <div class="box_form">
+
+        <h2>Inscription</h2>
+        <form action="inscription.html" method="post" id="formInscription">
+            <label for="emailInscription">Email<span class="obligatoire">*</span>: </label>
+            <input type="email" name="identifiant" id="emailInscription" required/>
+            <br/>
+            <label for="mdpInscription">Mot de passe<span class="obligatoire">*</span>: </label>
+            <input type="password" id="mdpInscription" maxLength="30" required/>
+            <br/>
+            <label for="confirmMdp">Confirmer mot de passe<span class="obligatoire">*</span>: </label>
+            <input type="password" id="confirmMdp" maxLength="30" required/>
+            <br/>
+            <br/>
+            <input type="submit" value="Valider"/>
+        </form>
+
+    </div>
+
+    <div id="error"> </div>
+</div>
+
+
+<footer id="footer_connexion">
+    <div id="footer">
+        <p>Copyright * - 2022</p>
+    </div>
+</footer>
+
+</body>
+</html>

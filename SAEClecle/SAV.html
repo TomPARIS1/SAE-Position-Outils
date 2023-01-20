@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Site SAE</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
+    <link rel="icon" type="image/png" href="assets/images/outils.png">
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/konva@8/konva.min.js"></script>
+</head>
+
+<body>
+
+<header>
+    <nav id="menu">
+        <div id="accueil">
+            <div>
+                <label for="check"><img src="assets/images/hamburger.png" alt="menu"></label>
+                <input type="checkbox" id="check">
+                <ul>
+                    <li><a href="index.html">Localisation</a></li>
+                    <li><a href="reservation.html">Réservation</a></li>
+                    <li><a href="abonnement.html">Abonnement</a></li>
+                    <li><a href="statistiques.html">Statistiques</a></li>
+                    <li><a href="SAV.html">SAV</a></li>
+                    <li><a id="deconnexion" href="connexion.html">Déconnexion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div id="SAV">
+    <div class="box_form">
+        <h2>Service Après Vente</h2>
+        <form action="submit_sav.html" method="post" id="form_sav">
+            <div>
+                <label for="identifiant">Nom: </label>
+                <input type="text" name="identifiant" id="identifiant"/>
+            </div>
+            <div>
+                <label for="probleme">Problème rencontré: </label>
+
+                <select name="probleme" id="probleme">
+                    <option value="manchon">Manchon défectueux</option>
+                    <option value="statistiques">Les statistiques ne fonctionnent pas</option>
+                    <option value="localisation">La localisation ne fonctionne pas</option>
+                    <option value="repertoire">Un ou des manchons ne sont pas répertoriés</option>
+                    <option value="plan">Le plan de l'atelier n'est pas correct</option>
+                    <option value="visualisation">Tous les ateliers ne sont pas visualisables</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </div>
+            <div>
+                <label for="desc">Description: </label>
+                <textarea name="desc" id="textarea" rows="3" cols="50"></textarea>
+            </div>
+            <button type="submit">Envoyer</button>
+        </form>
+
+    </div>
+
+
+
+</div>
+
+<footer id="footer_localisation">
+    <div id="footer">
+        <p>Copyright * - 2022</p>
+    </div>
+</footer>
+
+<script src="assets/scripts/cookies.js" type="application/javascript"></script>
+<script defer>checkCookie();</script>
+<script src="assets/scripts/sav.js" type="application/javascript" defer></script>
+<script src="assets/scripts/functionsApi.js" type="application/javascript" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Site SAE</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
+    <link rel="icon" type="image/png" href="assets/images/outils.png">
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+<header>
+    <nav id="menu">
+        <div id="accueil">
+            <div>
+                <label for="check"><img src="assets/images/hamburger.png" alt="menu"></label>
+                <input type="checkbox" id="check">
+                <ul>
+                    <li><a href="index.html">Localisation</a></li>
+                    <li><a href="reservation.html">Réservation</a></li>
+                    <li><a href="abonnement.html">Abonnement</a></li>
+                    <li><a href="statistiques.html">Statistiques</a></li>
+                    <li><a href="SAV.html">SAV</a></li>
+                    <li><a id="deconnexion" href="connexion.html">Déconnexion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="abonnements">
+    <h2>Abonnements</h2>
+	<div class="container">
+		<div class="box">
+			<h2>Basique</h2>
+			<img src="assets/images/map.png" alt="Map">
+			<p>Accès à la localisation et à la réservation d'outils, possibilité d'ajouter / supprimer les outils de la base.</p>
+            <br/>
+            <br/>
+			<a href="#">Obtenir</a>
+		</div>
+
+		<div class="box">
+			<h2>Premium</h2>
+			<img src="assets/images/analytics.png" alt="Analytics">
+			<p>
+            Accès à la localisation et à la réservation d'outils, possibilité d'ajouter / supprimer les outils de la base ainsi que d'obtenir les
+            statistiques d'utilisation des outils.
+            </p>
+            <br/>
+			<a href="#">Obtenir</a>
+		</div>
+
+		<div class="box">
+			<h2>Temporaire</h2>
+			<img src="assets/images/time.png" alt="Time">
+			<p>Période d'essai comprenant toutes les fonctionnalités de l'abonnement basique.</p>
+            <br/>
+            <br/>
+            <br/>
+			<a href="#">Obtenir</a>
+		</div>
+	</div>
+</div>
+
+<footer id="footer_abonnement">
+    <div id="footer">
+        <p>Copyright * - 2022</p>
+    </div>
+</footer>
+
+<script src="assets/scripts/cookies.js" type="application/javascript"></script>
+<script defer>checkCookie();</script>
+
+</body>
+</html>

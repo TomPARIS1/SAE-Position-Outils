@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Site SAE</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
+    <link rel="icon" type="image/png" href="assets/images/outils.png">
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+<header>
+    <nav id="menu">
+        <div id="accueil">
+            <div>
+                <label for="check"><img src="assets/images/hamburger.png" alt="menu"></label>
+                <input type="checkbox" id="check">
+                <ul>
+                    <li><a href="index.html">Localisation</a></li>
+                    <li><a href="reservation.html">Réservation</a></li>
+                    <li><a href="abonnement.html">Abonnement</a></li>
+                    <li><a href="statistiques.html">Statistiques</a></li>
+                    <li><a href="SAV.html">SAV</a></li>
+                    <li><a id="deconnexion" href="connexion.html">Déconnexion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<div id="reservationform">
+    <h4>Remplissez ce formulaire pour confirmer la réservation.</h4>
+
+    <div class="box_form">
+
+        <h3>Confirmer la réservation</h3>
+        <form id="valide_resev" method="post" enctype="multipart/form-data">
+            <p>
+                Outil : Marteau
+            </p>
+            <p>
+                <label for="nom_client">Nom:</label>
+                <input type="text" id="nom_client" name="nom_client">
+            </p>
+            <p>
+                <label for="date_reserv">Date:</label>
+                <input type="date" id="date_reserv" name="date_reserv">
+            </p>
+            <p>
+                De
+                <select name="date_deb" id="date_deb">
+                </select>
+                à
+                <select name="date_fin" id="date_fin">
+                </select>
+            </p>
+            <input type="submit" value="Valider"/>
+        </form>
+    </div>
+    <br/>
+    <br/>
+    <div id="statistiques"></div>
+        <h2 id="reserv_title">Réservation à venir:</h2>
+        <div id="listreservation">
+            <div class="box_reservation" style="display:none;">
+                <div class="desc_outil">
+                    <h3 class="name_client">Martin</h3>
+                    <p class="utilistion_outil">De 8h à 20h</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer id="footer_connexion">
+    <div id="footer">
+        <p>Copyright * - 2022</p>
+    </div>
+</footer>
+<script src="assets/scripts/cookies.js" type="application/javascript"></script>
+<script src="assets/scripts/functionsApi.js" type="application/javascript" defer></script>
+<script src="assets/scripts/reservation_confirm.js" type="application/javascript" defer></script>
+</body>
+</html>

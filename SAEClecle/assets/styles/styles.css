@@ -1,0 +1,412 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* CSS Général */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+html{
+    height:100%;
+}
+
+body{
+    background-color: #D98362;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+header {
+    height: 100%;
+    width: 100%;
+    padding-bottom: 2em;
+}
+
+footer{
+    background-color: #245472;
+    height: auto;
+    width: 100%;
+    padding: 1.5em;
+    text-align: center;
+    margin-top: 70px;
+}
+
+/* Navbar */
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: #245472;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+nav a img {
+    height:45px;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    line-height: 45px;
+    margin: 5px;
+    padding: 0px 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+}
+
+nav ul li a:hover {
+    color: #D98362;
+    text-shadow: 5px 5px 30px #000000;
+    transition: all 0.2s ease;
+}
+
+nav label > img {
+    height: 45px;
+    margin-left: 10px;
+    margin-top: 5px;
+    display: none;
+}
+
+nav label {
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+#deconnexion {
+    color: red;
+}
+
+@media(max-width: 768px) {
+    nav {
+        display: block;
+    }
+
+    nav a img {
+        display: none;
+    }
+
+    nav ul {
+        display: block;
+        display: none;
+    }
+
+    nav label {
+        display: inline;
+    }
+
+    nav label > img {
+        display: inline;
+    }
+    
+    #check:checked ~ ul {
+        display: block;
+    }
+}
+
+/* Formulaire connexion */
+
+#footer_connexion{
+	position: absolute;
+    bottom: 0;
+}
+
+#connexion h4 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+form {
+    padding: 20px;
+}
+
+#email {
+    margin-bottom: 10px;
+}
+
+form p {
+    margin-bottom: 10px;
+}
+
+.box_form {
+    background-color: #245472;
+    box-shadow: 12px 12px 10px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    padding: 2em;
+    text-align: center;
+}
+
+@media(max-width: 768px) {
+    #connexion h4 {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+    .box_form {
+        background-image: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .box_form h2 {
+        display: none;
+    }
+}
+
+/* Abonnement */
+
+#footer_abonnement {
+    position: absolute;
+    bottom: 0;
+}
+
+.abonnements {
+    width: 100%;
+    padding: 0 20px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.abonnements h2 {
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    color: #FFFFFF;
+}
+
+.box {
+    height: 420px;
+    width: 350px;
+    padding: 20px 20px;
+    border-radius: 20px;
+    background-color: #245472;
+    text-align: center;
+    box-shadow: 5px 10px 30px rgba(0,0,0,0.5);
+    margin: 20px 0;
+    transition: all 0.5s ease;
+}
+
+.box:hover {
+    transition: 1s;
+    transform: scale(1.1);
+}
+
+.box a {
+    display: flex;
+    width: 140px;
+    height: 40px;
+    margin: auto;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    background-color: #245472;
+    border-radius: 20px;
+    box-shadow: 5px 10px 30px rgba(0,0,0,0.3);
+}
+
+.box a:hover {
+    background-color: #D98362;
+    transition: all 0.2s ease;
+}
+
+.abonnements > p {
+    font-size: 22px;
+    margin: 17px 0;
+}
+
+.abonnements > p img {
+    width: 23px;
+}
+
+.box img {
+    margin: 7px 0;
+    position: relative;
+    width: 70px;
+}
+
+@media (max-width: 768px) {
+    .abonnements > p {
+        font-size: 18px;
+    }
+
+    .container {
+        display: block;
+        text-align: center;
+        align-items: center;
+        width: auto;
+    }
+
+    .box {
+        height: 400px;
+        width: 330px;
+        font-size: 16px;
+        display: inline-block;
+    }
+}
+
+/* Localisation (index) */
+
+#footer_localisation {
+    position: absolute;
+    bottom: 0;
+}
+
+#select_atelier {
+    margin-bottom: 1em;
+}
+
+#localisation {
+    width: 80%;
+    text-align: center;
+}
+
+#localisation h2 {
+    text-decoration: underline;
+}
+
+.plan canvas {
+    border: 2px solid black;
+}
+
+@media (max-width: 768px) {
+    #localisation {
+        width: auto;
+    }
+
+    .plan canvas {
+        transform: rotate(90deg);
+        width: auto;
+        margin-top: 130px;
+        margin-bottom: 100px;
+    }
+
+    footer {
+        display: none;
+    }
+}
+
+/* Réservation */
+
+#reservation {
+    text-align: center;
+    width: 40%;
+}
+
+#reservation h2 {
+    text-decoration: underline;
+}
+
+.box_reservation {
+    background-color: #245472;
+    box-shadow: 12px 12px 10px rgba(0, 0, 0, .3);
+    margin: 2em;
+    border-radius: 10px;
+    padding: 2em;
+    min-height: 100px;
+    min-width: 150px;
+    text-align: center;
+}
+
+.box_reservation a {
+    display: flex;
+    width: 110px;
+    height: 30px;
+    margin: auto;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    background-color: #375673;
+    border-radius: 20px;
+    box-shadow: 5px 10px 30px rgba(0,0,0,0.3);
+}
+
+.box_reservation a:hover {
+    background-color: #D98362;
+    transition: all 0.2s ease;
+}
+
+@media (max-width: 768px) {
+    #reservation {
+        width: auto;
+    }
+}
+
+#reservationform h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* Statistiques */
+
+#statistiques {
+    text-align: center;
+    width: 40%;
+}
+
+#statistiques h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* SAV */
+
+#SAV h2 {
+    text-decoration: underline;
+}
+
+#SAV input {
+    margin-bottom: 10px;
+}
+
+#form_sav textarea {
+    resize: none;
+    margin-top: 10px;
+}
+
+/* Inscription */
+
+#emailInscription {
+    margin-bottom: 10px;
+}
+
+#mdpInscription {
+    margin-bottom: 10px;
+}
+
+.obligatoire {
+    color: red;
+}
