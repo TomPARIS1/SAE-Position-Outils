@@ -117,7 +117,8 @@
                         ". $this->db_table ."
                     WHERE 
                         id_outil = :id_outil
-                        AND date_fin > :current";
+                        AND date_fin > :current
+                    ORDER BY date_debut";
                     
         
             $stmt = $this->conn->prepare($sqlQuery);
