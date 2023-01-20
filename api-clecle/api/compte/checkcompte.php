@@ -41,7 +41,7 @@
 
         $emp_arr = array(
             "uui_key" =>  $key->UUID,
-            "codeErr" => "0" // You get some bitches
+            "codeErr" => "0" 
         );
         http_response_code(200);
         echo json_encode($emp_arr);
